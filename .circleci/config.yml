@@ -1,6 +1,8 @@
 version: 2
 jobs:
   build:
+    docker:
+      - image: circleci/python:3.7.2
     steps:
       - checkout # check out the code in the project directory
       - run: |
@@ -8,7 +10,7 @@ jobs:
 
   deploy-prod:
     docker:
-      - image: circleci/ruby:2.5
+      - image: circleci/python:3.7.2
     steps:
       - checkout # check out the code in the project directory
       - setup_remote_docker:
